@@ -1,0 +1,22 @@
+{
+    "version": "2.3.1",
+    "description": "An AI knowledge base",
+    "homepage": "https://ima.qq.com/",
+    "license": "unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://ima-app.image.myqcloud.com/win_channel/ima.copilot_win_x64_10000075_2.3.1_3835.exe#/dl.7z",
+            "hash": "db1f82b9e05a4908d64758dac78876611bc591999640ec33a59d2e199f28e0ae"
+        }
+    },
+    "installer": {
+        "script": "Expand-7zipArchive \"$dir\\chrome.7z\" -ExtractDir 'Chrome-bin' -Removal"
+    },
+    "bin": "ima.copilot.exe",
+    "shortcuts": [
+        [
+            "ima.copilot.exe",
+            "ima copilot"
+        ]
+    ]
+}

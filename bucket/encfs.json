@@ -1,0 +1,12 @@
+{
+    "homepage": "https://encfs.win/",
+    "version": "1.10.2",
+    "license": "",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/jetwhiz/encfs4win/releases/download/v1.10.2/encfs-installer.exe",
+            "hash": "43AF6E27C36FD8E9E3DF913D157D72A148349D723726961C55F9A81055913A37"
+        }
+    },
+    "bin": ["encfs"]
+}
