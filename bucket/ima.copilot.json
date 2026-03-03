@@ -1,12 +1,12 @@
 {
-    "version": "2.3.1",
+    "version": "2.4.0",
     "description": "An AI knowledge base",
     "homepage": "https://ima.qq.com/",
     "license": "unknown",
     "architecture": {
         "64bit": {
-            "url": "https://ima-app.image.myqcloud.com/win_channel/ima.copilot_win_x64_10000075_2.3.1_3835.exe#/dl.7z",
-            "hash": "db1f82b9e05a4908d64758dac78876611bc591999640ec33a59d2e199f28e0ae"
+            "url": "https://app-dl.ima.qq.com/win_channel/ima.copilot_win_x64_10000075_2.4.0_3909.exe#/dl.7z",
+            "hash": "9109a54c2c96901d58031fdf5d7f9b7444d654b80f60cc3eaf18de85e0d604ef"
         }
     },
     "installer": {
@@ -20,3 +20,5 @@
         ]
     ]
 }
+
+
