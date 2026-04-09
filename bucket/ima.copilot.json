@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://app-dl.ima.qq.com/win_channel/ima.copilot_win_x64_10000075_2.4.6_4097.exe#/dl.7z",
-            "hash": "63aa172377dcbffafe21fdd610afdc84c63fb8bc2305ea466bc309da4b510a43"
+            "hash": "2d503b62c91996d92cebace08b7781fcba6917df90d27b631bd965e2f78509fc"
         }
     },
     "installer": {
