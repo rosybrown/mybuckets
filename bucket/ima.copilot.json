@@ -18,7 +18,25 @@
             "ima.copilot.exe",
             "ima copilot"
         ]
-    ]
+    ],
+    "checkver": {
+        "script": [
+            "$dirs = Invoke-RestMethod 'https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/t/Tencent/ima-copilot'",
+            "$wingetVer = ($dirs | Where-Object { $_.type -eq 'dir' } | Sort-Object name -Descending | Select-Object -First 1).name",
+            "$yaml = Invoke-RestMethod \"https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/t/Tencent/ima-copilot/$wingetVer/Tencent.ima-copilot.installer.yaml\"",
+            "if ($yaml -match 'InstallerUrl:\\s*(https?://.+\\.exe)') { $url = $matches[1] }",
+            "if ($yaml -match 'InstallerSha256:\\s*(\\S+)') { $hash = $matches[1] }",
+            "if ($url -match 'ima\\.copilot_win_x64_(\\d+)_([\\d.]+)_(\\d+)\\.exe') { $appVer = $matches[2] }",
+            "Write-Output \"appver:$appVer url:$url hash:$hash\""
+        ],
+        "regex": "appver:(?<version>[\\d.]+)\\surl:(?<url>https?://[^\\s]+)\\shash:(?<hash>\\S+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "$matchUrl#/dl.7z",
+                "hash": "$matchHash"
+            }
+        }
+    }
 }
-
-

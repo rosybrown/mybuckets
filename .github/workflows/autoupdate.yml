@@ -2,9 +2,9 @@ name: Auto Update Manifests
 
 on:
   schedule:
-    # 每天 UTC 时间 0:00 运行 (北京时间 8:00)
+    # 每天 UTC 0:00 运行 (北京时间 8:00)
     - cron: '0 0 * * *'
-  workflow_dispatch: # 支持手动触发
+  workflow_dispatch:
 
 jobs:
   autoupdate:
@@ -18,23 +18,11 @@ jobs:
           iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
           echo "$env:USERPROFILE\scoop\shims" >> $env:GITHUB_PATH
 
-      - name: Check for updates
-        id: checkver
+      - name: Check and update manifests
         shell: powershell
         run: |
-          Set-Location bucket
-          $updated = @()
-          Get-ChildItem -Filter *.json | ForEach-Object {
-            $manifest = $_.Name
-            Write-Host "Checking $manifest..."
-            $check = scoop checkver $manifest 2>&1
-            if ($check -match "new version") {
-              Write-Host "Found update for $manifest"
-              scoop autoupdate $manifest
-              $updated += $manifest
-            }
-          }
-          echo "updated=$($updated -join ',')" >> $env:GITHUB_OUTPUT
+          $checkver = "$env:USERPROFILE\scoop\apps\scoop\current\bin\checkver.ps1"
+          & $checkver -Dir bucket -Update
 
       - name: Commit and push changes
         shell: powershell
