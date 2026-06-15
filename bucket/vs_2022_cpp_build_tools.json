@@ -1,0 +1,33 @@
+{
+  "version": "17.0",
+  "description": "Visual Studio 2022 C++ Build Tools",
+  "url": "https://aka.ms/vs/17/release/vs_BuildTools.exe",
+  "hash": "2c18f00378d907eadf7677dfe0458cdea873c1a8f56184466da9ffef7f210878",
+  "installer": {
+    "file": "vs_BuildTools.exe",
+    "args": [
+      "--passive",
+      "--norestart",
+      "--wait",
+      "--add",
+      "Microsoft.VisualStudio.Workload.VCTools",
+      "--add",
+      "Microsoft.VisualStudio.Component.VC.ATL",
+      "--includeRecommended"
+    ],
+    "keep": true
+  },
+  "uninstaller": {
+    "file": "vs_BuildTools.exe",
+    "args": [
+      "--passive",
+      "--norestart",
+      "--wait",
+      "--remove",
+      "Microsoft.VisualStudio.Workload.VCTools",
+      "--remove",
+      "Microsoft.VisualStudio.Component.VC.ATL",
+      "--includeRecommended"
+    ]
+  }
+}
