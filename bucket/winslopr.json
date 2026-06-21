@@ -6,13 +6,15 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/builtbybel/Winslopr/releases/download/26.04.04/Winslopr-26.04.04-win-x64.zip",
-            "hash": "767717646b43787ac19f698fbc1086d91f7c69fae7a470cd4ef78f31d4a4166f"
+            "hash": "767717646b43787ac19f698fbc1086d91f7c69fae7a470cd4ef78f31d4a4166f",
+            "extract_dir": "Winslopr-26.04.04-win-x64"
         }
     },
     "pre_install": [
         "$configFileExists = Test-Path $persist_dir\\Winslopr.txt",
         "if (-not $configFileExists) { Add-Content $dir\\Winslopr.txt '{\"AutoUpdate\": \"0\"}' -Encoding utf8NoBOM }"
     ],
+    "bin": "Winslopr.exe",
     "shortcuts": [
         [
             "Winslopr.exe",
@@ -29,7 +31,8 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/builtbybel/Winslopr/releases/download/$version/Winslopr-$version-win-x64.zip"
+                "url": "https://github.com/builtbybel/Winslopr/releases/download/$version/Winslopr-$version-win-x64.zip",
+                "extract_dir": "Winslopr-$version-win-x64"
             }
         }
     }
